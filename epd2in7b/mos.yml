@@ -1,0 +1,27 @@
+author: Juan Molero
+description: EPD 2.7 Inch B/W/R Display
+type: lib
+version: 1.0
+
+platforms: [ esp32 ]
+
+includes: [ include ]
+sources: [ src ]
+
+libs:
+  - origin: https://github.com/drbomb/epdpaint
+  - origin: https://github.com/mongoose-os-libs/spi
+
+config_schema:
+  - ["epd", "o", {title: "EPaper Settings"}]
+  - ["epd.busy_gpio", "i", 4, {title: "BUSY GPIO"}]
+  - ["epd.dc_gpio", "i", 17, {title: "DC GPIO"}]
+  - ["epd.rst_gpio", "i", 16, {title: "RST GPIO"}]
+  - ["epd.cs_gpio", "i", 5, {title: "RST GPIO"}]
+  - ["spi.mosi_gpio", 23]  
+  - ["spi.miso_gpio", -1]
+  - ["spi.sclk_gpio", 18]
+  - ["spi.cs0_gpio", -1]
+  - ["spi.enable", true]
+
+manifest_version: 2017-09-29

@@ -1,0 +1,18 @@
+author: Juan Molero
+description: EPD 2.7 Inch B/W/R Display Test App
+version: 1.0
+
+platform: esp32
+
+sources: [ src ]
+
+config_schema:
+#  - ["sys.tz_spec", "VNZ+4"]
+
+libs:
+  - origin: https://github.com/DrBomb/mongooseOS-epd2in7b:epd2in7b
+  - origin: http://github.com/mongoose-os-libs/wifi
+  - origin: http://github.com/mongoose-os-libs/sntp
+  - origin: http://github.com/mongoose-os-libs/rpc-uart
+  - origin: http://github.com/mongoose-os-libs/rpc-service-config
+manifest_version: 2017-09-29
