@@ -29,6 +29,9 @@
 #include "mgos_spi.h"
 #include "epd2in7b.h"
 
+/**
+ *  @brief: initialize EPD display
+ */
 int Epd_Init(struct epd_display *epd){
     mgos_gpio_set_mode(epd->reset_pin, MGOS_GPIO_MODE_OUTPUT);
     mgos_gpio_set_mode(epd->dc_pin, MGOS_GPIO_MODE_OUTPUT);
@@ -105,6 +108,9 @@ void Epd_SendCommand(struct epd_display *epd, unsigned char command) {
     Epd_SpiTransfer(epd, command);
 }
 
+/**
+ *  @brief: SPI transfer function logic
+ */
 void Epd_SpiTransfer(struct epd_display *epd, unsigned char data) {
     struct mgos_spi *spi;
     /* Global SPI instance is configured by the `spi` config section. */
@@ -139,7 +145,7 @@ void Epd_SendData(struct epd_display *epd, unsigned char data) {
 }
 
 /**
- *  @brief: Wait until the busy_pin goes HIGH
+ *  @brief: Wait until the busy_pin goes HIGH. Will trigger WDT if waited for too long!
  */
 void Epd_WaitUntilIdle(struct epd_display *epd) {
     while(mgos_gpio_read(epd->busy_pin) == 0) {      //0: busy, 1: idle
@@ -148,7 +154,7 @@ void Epd_WaitUntilIdle(struct epd_display *epd) {
 }
 
 /**
- *  @brief: Wait until the busy_pin goes HIGH
+ *  @brief: Return TRUE if EPD is busy
  */
 bool Epd_IsBusy(struct epd_display *epd) {
     if(mgos_gpio_read(epd->busy_pin) == 0) return true;
