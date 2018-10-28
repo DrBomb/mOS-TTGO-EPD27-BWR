@@ -1,7 +1,6 @@
 #include "mgos.h"
 #include "epd2in7b.h"
 #include "epdpaint.hpp"
-#include "imagedata.h"
 #include <time.h>
 
 #define COLORED     1
