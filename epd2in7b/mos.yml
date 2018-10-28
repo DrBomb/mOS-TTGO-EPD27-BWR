@@ -9,7 +9,7 @@ includes: [ include ]
 sources: [ src ]
 
 libs:
-  - origin: ../epdpaint
+  - origin: https://github.com/DrBomb/epdpaint
   - origin: https://github.com/mongoose-os-libs/spi
 
 config_schema:
